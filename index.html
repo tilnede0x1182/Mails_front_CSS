@@ -1,58 +1,77 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My mails - personnalisé</title>
-  <link rel="stylesheet" href="style_office_2003_bleu.css">
-  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>My mails - personnalisé</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!-- <link rel="stylesheet" href="css/style_liquid_glass.css"> -->
+	<!-- <link rel="stylesheet" href="css/style_office_2003_bleu.css"> -->
+	<!-- <link rel="stylesheet" href="css/style_vista.css"> -->
+	<!-- <link rel="stylesheet" href="css/style_vista_deep.css"> -->
+	<!-- <link rel="stylesheet" href="css/style_aqua.css"> -->
+	<link rel="stylesheet" href="css/style_liquid_glass.css" id="main-style">
+	<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
 </head>
+
 <body>
-  <div id="container">
+	<div style="margin: 0 0 18px 0; padding: 0; text-align: right;">
+		<label for="style-switcher" style="font-weight: normal;">Style&nbsp;:</label>
+		<select id="style-switcher" name="style-switcher">
+			<option value="style_liquid_glass.css">Liquid Glass</option>
+			<option value="style_office_2003_bleu.css">Office 2003 Bleu</option>
+			<option value="style_vista.css">Vista</option>
+			<option value="style_vista_deep.css" selected>Vista Deep</option>
+			<option value="style_aqua.css">Aqua</option>
+		</select>
+	</div>
+	<div id="container">
+		<header id="header">
+			<div id="logo-container">
+				<!-- SVG inline Leaf icon (Heroicons) -->
+				<svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 24 24" fill="currentColor">
+					<path
+						d="M12 2C8.134 2 5 5.134 5 9c0 3.866 3.134 7 7 7s7-3.134 7-7c0-3.866-3.134-7-7-7zm0 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10z" />
+					<path d="M12 14c-4.418 0-8 3.582-8 8h2c0-3.309 2.691-6 6-6s6 2.691 6 6h2c0-4.418-3.582-8-8-8z" />
+				</svg>
+				<h1><span class="blue">MY</span>MAILS</h1>
+			</div>
+			<div id="search-container">
+				<input type="text" id="search-message" placeholder="🔎 Search message..." />
+				<button id="btn-search">Search</button>
+			</div>
+		</header>
 
-    <header id="header">
-      <div id="logo-container">
-        <!-- SVG inline Leaf icon (Heroicons) -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C8.134 2 5 5.134 5 9c0 3.866 3.134 7 7 7s7-3.134 7-7c0-3.866-3.134-7-7-7zm0 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
-          <path d="M12 14c-4.418 0-8 3.582-8 8h2c0-3.309 2.691-6 6-6s6 2.691 6 6h2c0-4.418-3.582-8-8-8z"/>
-        </svg>
-        <h1><span class="blue">MY</span>MAILS</h1>
-      </div>
-      <div id="search-container">
-        <input type="text" id="search-message" placeholder="🔎 Search message..." />
-        <button id="btn-search">Search</button>
-      </div>
-    </header>
+		<section id="left-side">
+			<div id="add-section">
+				<input type="text" id="add-message" placeholder="New message..." />
+				<button id="btn-add">Add</button>
+			</div>
+		</section>
 
-    <section id="left-side">
-      <div id="add-section">
-        <input type="text" id="add-message" placeholder="New message..." />
-        <button id="btn-add">Add</button>
-      </div>
-    </section>
+		<section id="right-side">
+			<div id="total-msg">
+				Nombre de messages :&nbsp;<span id="count">5</span>
+			</div>
+			<div id="msg-container">
+				<div class="row">
+					<img class="avatar" src="https://randomuser.me/api/portraits/men/1.jpg" alt="avatar" />
+					<div class="text-container">
+						<h6>John Doe</h6>
+						<p>Hello, this is the first message.</p>
+					</div>
+					<button class="delete">✖</button>
+				</div>
+				<!-- Répétez les .row avec d’autres URLs externes si besoin -->
+			</div>
+		</section>
 
-    <section id="right-side">
-      <div id="total-msg">
-        Nombre de messages :&nbsp;<span id="count">5</span>
-      </div>
-      <div id="msg-container">
-        <div class="row">
-          <img class="avatar" src="https://randomuser.me/api/portraits/men/1.jpg" alt="avatar" />
-          <div class="text-container">
-            <h6>John Doe</h6>
-            <p>Hello, this is the first message.</p>
-          </div>
-          <button class="delete">✖</button>
-        </div>
-        <!-- Répétez les .row avec d’autres URLs externes si besoin -->
-      </div>
-    </section>
+		<footer id="footer">
+		</footer>
 
-    <footer id="footer">
-    </footer>
-
-  </div>
-  <script src="script.js"></script>
+	</div>
+	<script src="script.js"></script>
 </body>
+
 </html>

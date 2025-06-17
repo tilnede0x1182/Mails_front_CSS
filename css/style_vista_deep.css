@@ -1,0 +1,189 @@
+/* -------- RESET & BASE ------------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0;  padding: 0;  height: 100%;
+  font-family: "Segoe UI", "Frutiger", sans-serif;
+  background: linear-gradient(180deg,#072c59 0%,#0d417a 40%,#155399 100%);
+  overflow: hidden;
+  color: #eaf4ff;
+}
+
+/* -------- GRILLE PRINCIPALE ------------------------------------- */
+#container{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Effet eau profonde ondulée */
+#container::before{
+  content:"";
+  position:absolute; inset:-40%;
+  background:
+    radial-gradient(circle at 35% 30%,rgba(255,255,255,.12) 0%,transparent 60%),
+    radial-gradient(circle at 70% 75%,rgba(255,255,255,.08) 0%,transparent 70%);
+  mix-blend-mode: screen;
+  filter: blur(45px);
+  opacity: .35;
+  animation: oceanDrift 28s linear infinite;
+  pointer-events:none;
+}
+@keyframes oceanDrift{
+  0%   {transform:translate(0,0) scale(1.15);}
+  50%  {transform:translate(120px,60px) scale(1.05);}
+  100% {transform:translate(0,0)  scale(1.15);}
+}
+
+/* -------- MIXIN CONVEX (copiée manuellement) -------------------- */
+#header,
+#left-side,
+#right-side,
+#total-msg,
+#msg-container{
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.38);
+  border-radius: 24px;
+  backdrop-filter: blur(16px) saturate(135%);
+  box-shadow:
+    inset 0 2px 4px rgba(255,255,255,0.4),
+    inset 0 -4px 6px rgba(0,0,0,0.35),
+    0 6px 14px rgba(0,0,0,0.45);
+}
+
+/* -------- HEADER ------------------------------------------------ */
+#header{
+  grid-column:1 / -1;
+  padding: 18px 32px;
+  display:flex;justify-content:space-between;align-items:center;
+  background: rgba(255,255,255,0.22);
+  border-bottom:2px solid rgba(255,255,255,0.45);
+}
+
+/* Logo + titre */
+#logo-container{display:flex;align-items:center;}
+.logo{
+  width:38px;height:38px;margin-right:14px;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.6));
+}
+.blue{
+  color:#d5e8ff;
+  font-size:1.35rem;font-weight:bold;
+  text-shadow:0 2px 4px rgba(0,0,0,.8);
+}
+
+/* -------- BARRE DE RECHERCHE ----------------------------------- */
+#search-container{display:flex;align-items:center;gap:12px;}
+#search-message,#btn-search{
+  padding:8px 14px;border-radius:20px;font-size:.95rem;
+  border:1px solid rgba(255,255,255,.45);
+}
+#search-message{
+  flex:1;width:260px;max-width:45vw;
+  background:rgba(255,255,255,.25);color:#06254b;
+  box-shadow:inset 0 1px 2px rgba(255,255,255,.6),
+             inset 0 -1px 2px rgba(0,0,0,.4);
+}
+#search-message:focus{outline:none;background:rgba(255,255,255,.33);}
+#btn-search{
+  background:linear-gradient(180deg,#d0e6ff 0%,#9ec7ff 100%);
+  color:#002a5a;cursor:pointer;
+  box-shadow:inset 0 2px 3px rgba(255,255,255,.6),
+             inset 0 -2px 3px rgba(0,0,0,.4);
+}
+#btn-search:hover{background:#e8f3ff;}
+
+/* -------- SIDEBAR GAUCHE --------------------------------------- */
+#left-side{
+  grid-column:1 / 5;
+  grid-row:2;
+  padding:24px;
+  overflow-y:auto;
+  border-right:1px solid rgba(0,0,0,.35);
+}
+
+/* Ajout message */
+#add-section{display:flex;gap:12px;margin-bottom:24px;}
+#add-message,#btn-add{
+  padding:8px 14px;border-radius:20px;border:1px solid rgba(255,255,255,.45);
+}
+#add-message{
+  flex:1;
+  background:rgba(255,255,255,.25);color:#06254b;
+  box-shadow:inset 0 1px 2px rgba(255,255,255,.6),
+             inset 0 -1px 2px rgba(0,0,0,.4);
+}
+#add-message:focus{background:rgba(255,255,255,.33);}
+#btn-add{
+  background:linear-gradient(180deg,#d0e6ff 0%,#9ec7ff 100%);
+  color:#002a5a;cursor:pointer;
+  box-shadow:inset 0 2px 3px rgba(255,255,255,.6),
+             inset 0 -2px 3px rgba(0,0,0,.4);
+}
+#btn-add:hover{background:#e8f3ff;}
+
+/* -------- CONTENU PRINCIPAL ------------------------------------ */
+#right-side{
+  grid-column:5 / -1;
+  grid-row:2;
+  padding:24px;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  border-left:1px solid rgba(0,0,0,.35);
+}
+
+/* Totaux */
+#total-msg{
+  margin-bottom:18px;
+  padding:10px 16px;
+  font-size:1.15rem;
+  color:#dbe9ff;
+}
+
+/* -------- LISTE DES MESSAGES ----------------------------------- */
+#msg-container{
+  flex-grow:1;
+  padding:16px;
+  overflow-y:auto;
+}
+
+.row{
+  display:flex;align-items:center;
+  padding:12px 0;
+  border-bottom:1px solid rgba(0,0,0,.4);
+}
+.row:last-child{border-bottom:none;}
+
+.avatar{
+  width:56px;height:56px;border-radius:50%;margin-right:16px;
+  object-fit:cover;
+  box-shadow:0 3px 6px rgba(0,0,0,.5);
+}
+
+.text-container h6{
+  margin:0;font-size:1rem;color:#eaf4ff;
+}
+.text-container p{
+  margin:4px 0 0;font-size:.9rem;color:#a8c9f1;
+}
+
+/* Delete bouton */
+.delete{
+  margin-left:auto;width:28px;height:28px;border:none;border-radius:50%;
+  background:linear-gradient(180deg,#d0e6ff 0%,#9ec7ff 100%);
+  color:#002a5a;cursor:pointer;
+  box-shadow:inset 0 2px 3px rgba(255,255,255,.6),
+             inset 0 -2px 3px rgba(0,0,0,.45);
+}
+.delete:hover{background:#e8f3ff;}
+
+/* -------- FOOTER ------------------------------------------------ */
+#footer{
+  grid-column:1 / -1;
+  height:46px;
+  background:rgba(255,255,255,.20);
+  border-top:2px solid rgba(255,255,255,.45);
+  border-radius:0 0 26px 26px;
+}

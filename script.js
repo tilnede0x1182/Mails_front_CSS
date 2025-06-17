@@ -242,5 +242,13 @@ function main() {
 	updateCount();
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  var styleSelect = document.getElementById("style-switcher");
+  var mainStyle = document.getElementById("main-style");
+  styleSelect.addEventListener("change", function () {
+    mainStyle.setAttribute("href", "css/" + styleSelect.value);
+  });
+});
+
 // # Lancement du programme
 document.addEventListener("DOMContentLoaded", main);
