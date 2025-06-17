@@ -24,4 +24,4 @@ L’interface est élégante, réactive, et propose plusieurs styles visuels ins
 ## 🔗 Démo sur GitHub Pages (en ligne) :
 
 Vous pouvez voir le projet en fonctionnement ici :
-[https://tilnede0x1182.github.io/Mmils_front_CSS](https://tilnede0x1182.github.io/mails_front_CSS)
+[https://tilnede0x1182.github.io/mails_front_CSS](https://tilnede0x1182.github.io/mails_front_CSS)
