@@ -18,3 +18,10 @@ L’interface est élégante, réactive, et propose plusieurs styles visuels ins
 - Office 2003 Bleu (corporate, rétro)
 - Vista / Vista Deep (bleu profond, effet convexe)
 - Aqua (effet gel, pastel)
+
+---
+
+## 🔗 Démo sur GitHub Pages (en ligne) :
+
+Vous pouvez voir le projet en fonctionnement ici :
+[https://tilnede0x1182.github.io/Mails_front_CSS](https://tilnede0x1182.github.io/Mails_front_CSS)
